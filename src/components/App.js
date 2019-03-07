@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 import './../App.css';
 import Nav from './Nav'
 import Footer from './Footer';
 import DieuHuongURL from '../router/DieuHuongURL';
+
 
 
 class App extends Component {
@@ -12,7 +13,7 @@ class App extends Component {
       <Router>
         <div>
           <Nav/>
-          <DieuHuongURL/>
+            <DieuHuongURL/>
           <Footer/>
         </div>
       </Router>

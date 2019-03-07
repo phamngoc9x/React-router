@@ -1,44 +1,80 @@
 import React, { Component } from 'react';
+import dl from './Dulieu.json';
 
 class Detail extends Component {
+
   render() {
+    
     return (
-      <section className="page-section" id="services">
+      <div>
+        <section className="page-section bg-primary" id="about">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-lg-8 text-center">
+                <h2 className="text-white mt-0">Tin tức</h2>
+                <hr className="divider light my-4" />
+              </div>
+            </div>
+          </div>
+        </section>
         <div className="container">
-          <h2 className="text-center mt-0">At Your Service</h2>
-          <hr className="divider my-4" />
+          {
+            dl.map((value, key) => {
+              if (value.id === parseInt(this.props.match.params.id)) {
+                return (
+                  <div className="container mt-5" key= {key}>
+                    <h1>
+                      {value.title}
+                    </h1>
+                    <div className="text-center mt-3 mb-3">
+                      <img alt="title" src={value.image} />
+                    </div>
+                    <p>
+                      {value.description}
+                    </p>
+                  </div>
+                )
+              }
+            })
+          }
+
+          <h4 className="text-center mt-5 mb-4"> Tin liên quan</h4>
           <div className="row">
-            <div className="col-lg-3 col-md-6 text-center">
-              <div className="mt-5">
-                <i className="fas fa-4x fa-gem text-primary mb-4" />
-                <h3 className="h4 mb-2">Sturdy Themes</h3>
-                <p className="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
+            <div className="col-3">
+              <div className="card mb-">
+                <img className="card-img-top" src="https://placehold.it/800x600" alt="Card cap" />
+                <div className="card-body">
+                  <h6 className="card-title"><a href="/detail">Trump: 'Tôi sẽ thất vọng nếu Triều Tiên khôi phục bãi phóng tên lửa'</a></h6>
+                </div>
               </div>
             </div>
-            <div className="col-lg-3 col-md-6 text-center">
-              <div className="mt-5">
-                <i className="fas fa-4x fa-laptop-code text-primary mb-4" />
-                <h3 className="h4 mb-2">Up to Date</h3>
-                <p className="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
+            <div className="col-3">
+              <div className="card mb-">
+                <img className="card-img-top" src="https://placehold.it/800x600" alt="Card cap" />
+                <div className="card-body">
+                  <h6 className="card-title"><a href="/detail">Trump: 'Tôi sẽ thất vọng nếu Triều Tiên khôi phục bãi phóng tên lửa'</a></h6>
+                </div>
               </div>
             </div>
-            <div className="col-lg-3 col-md-6 text-center">
-              <div className="mt-5">
-                <i className="fas fa-4x fa-globe text-primary mb-4" />
-                <h3 className="h4 mb-2">Ready to Publish</h3>
-                <p className="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+            <div className="col-3">
+              <div className="card m">
+                <img className="card-img-top" src="https://placehold.it/800x600" alt="Card cap" />
+                <div className="card-body">
+                  <h6 className="card-title"><a href="/detail">Trump: 'Tôi sẽ thất vọng nếu Triều Tiên khôi phục bãi phóng tên lửa'</a></h6>
+                </div>
               </div>
             </div>
-            <div className="col-lg-3 col-md-6 text-center">
-              <div className="mt-5">
-                <i className="fas fa-4x fa-heart text-primary mb-4" />
-                <h3 className="h4 mb-2">Made with Love</h3>
-                <p className="text-muted mb-0">Is it really open source if it's not made with love?</p>
+            <div className="col-3">
+              <div className="card mb-">
+                <img className="card-img-top" src="https://placehold.it/800x600" alt="Card cap" />
+                <div className="card-body">
+                  <h6 className="card-title"><a href="/detail">Trump: 'Tôi sẽ thất vọng nếu Triều Tiên khôi phục bãi phóng tên lửa'</a></h6>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     );
   }
 }

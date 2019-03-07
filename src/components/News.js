@@ -1,117 +1,35 @@
 import React, { Component } from 'react';
-import Nav from './Nav';
-
+import dl from './Dulieu.json';
+import NewItem from './NewItem.js';
 class News extends Component {
+  constructor(props) {
+    super(props);
+    this.state ={
+      data: dl
+    }
+  }
   render() {
     return (
       <div>
-        <Nav/>
         <section className="page-section bg-primary" id="about">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-lg-8 text-center">
-                <h2 className="text-white mt-0">We've got what you need!</h2>
+                <h2 className="text-white mt-0">Tin tức</h2>
                 <hr className="divider light my-4" />
-                <p className="text-white-50 mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our open source, free to download, and easy to use themes! No strings attached!</p>
-                <a className="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
               </div>
             </div>
           </div>
         </section>
-
-        {/* Portfolio Section */}
-        <section id="portfolio">
-          <div className="container-fluid p-0">
-            <div className="row no-gutters">
-              <div className="col-lg-4 col-sm-6">
-                <a className="portfolio-box" href="img/portfolio/fullsize/1.jpg">
-                  <img className="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="" />
-                  <div className="portfolio-box-caption">
-                    <div className="project-category text-white-50">
-                      Category
-            </div>
-                    <div className="project-name">
-                      Project Name
-            </div>
-                  </div>
-                </a>
-              </div>
-              <div className="col-lg-4 col-sm-6">
-                <a className="portfolio-box" href="img/portfolio/fullsize/2.jpg">
-                  <img className="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="" />
-                  <div className="portfolio-box-caption">
-                    <div className="project-category text-white-50">
-                      Category
-            </div>
-                    <div className="project-name">
-                      Project Name
-            </div>
-                  </div>
-                </a>
-              </div>
-              <div className="col-lg-4 col-sm-6">
-                <a className="portfolio-box" href="img/portfolio/fullsize/3.jpg">
-                  <img className="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="" />
-                  <div className="portfolio-box-caption">
-                    <div className="project-category text-white-50">
-                      Category
-                    </div>
-                    <div className="project-name">
-                      Project Name
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div className="col-lg-4 col-sm-6">
-                <a className="portfolio-box" href="img/portfolio/fullsize/4.jpg">
-                  <img className="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="" />
-                  <div className="portfolio-box-caption">
-                    <div className="project-category text-white-50">
-                      Category
-                    </div>
-                    <div className="project-name">
-                      Project Name
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div className="col-lg-4 col-sm-6">
-                <a className="portfolio-box" href="img/portfolio/fullsize/5.jpg">
-                  <img className="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="" />
-                  <div className="portfolio-box-caption">
-                    <div className="project-category text-white-50">
-                      Category
-            </div>
-                    <div className="project-name">
-                      Project Name
-            </div>
-                  </div>
-                </a>
-              </div>
-              <div className="col-lg-4 col-sm-6">
-                <a className="portfolio-box" href="img/portfolio/fullsize/6.jpg">
-                  <img className="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="" />
-                  <div className="portfolio-box-caption p-3">
-                    <div className="project-category text-white-50">
-                      Category
-            </div>
-                    <div className="project-name">
-                      Project Name
-            </div>
-                  </div>
-                </a>
-              </div>
-            </div>
+        <section className="container mt-5">
+          <div className="row">
+            {this.state.data.map( (value, key)=>{
+              return (
+                <NewItem key= {key} id ={value.id} title={value.title} quote={value.quote} description={value.description} image={value.image}/>
+              );
+            })}
           </div>
         </section>
-        {/* Call to Action Section */}
-        <section className="page-section bg-dark text-white">
-          <div className="container text-center">
-            <h2 className="mb-4">Free Download at Start Bootstrap!</h2>
-            <a className="btn btn-light btn-xl" href="https://startbootstrap.com/themes/creative/">Download Now!</a>
-          </div>
-        </section>
-        {/* Contact Section */}
         <section className="page-section" id="contact">
           <div className="container">
             <div className="row justify-content-center">
@@ -135,11 +53,6 @@ class News extends Component {
           </div>
         </section>
         {/* Footer */}
-        <footer className="bg-light py-5">
-          <div className="container">
-            <div className="small text-center text-muted">Copyright © 2019 - Start Bootstrap</div>
-          </div>
-        </footer>
       </div>
     );
   }
